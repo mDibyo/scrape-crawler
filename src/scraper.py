@@ -55,12 +55,10 @@ class PageScraper(object):
 
 
 
-class IMDBMoviePageScraper(Scraper):
-    def __init__(self, url):
-        self.url = url
-
-        self.scrapers = [
+class IMDBMoviePageScraper(PageScraper):
+    def __init__(self):
+        super(IMDBMoviePageScraper, self).__init__([
             AttributeBasedElementScraper('rating', 'span',
-                                         {'itemprop': 'ratingValue'})
-        ]
+                                         {'itemprop': 'ratingValue'}),
+        ])
 
